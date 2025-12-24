@@ -6,17 +6,22 @@
               name="Sales Operations"
               sequence="10"/>
 
-    <!-- Sales Orders -->
+    <!-- Sales Orders (menu فقط بدون action) -->
     <menuitem id="menu_sale_ops_orders"
               name="Sales Orders"
               parent="menu_sale_ops_root"
-              action="action_sale_orders_ops"
               sequence="10"/>
 
-    <!-- Operations Configuration (THIS WAS MISSING) -->
-    <menuitem id="menu_sale_ops_config_root"
-              name="Operations Configuration"
+    <!-- Operational Stages (menu فقط بدون action) -->
+    <menuitem id="menu_sale_ops_stages"
+              name="Stages"
               parent="menu_sale_ops_root"
-              sequence="50"/>
+              sequence="20"/>
+
+    <!-- (اختياري) قائمة إعدادات داخل نفس الموديول إذا ملفات الإعدادات تحتاجها كـ parent -->
+    <menuitem id="menu_sale_ops_config_root"
+              name="Configuration"
+              parent="menu_sale_ops_root"
+              sequence="90"/>
 
 </odoo>
