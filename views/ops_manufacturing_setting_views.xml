@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ===============================
+         LIST VIEW
+    ================================ -->
+    <record id="view_ops_manufacturing_setting_list" model="ir.ui.view">
+        <field name="name">ops.manufacturing.setting.list</field>
+        <field name="model">ops.manufacturing.setting</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="product_category_id"/>
+                <field name="manufacturing_days"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ===============================
+         FORM VIEW
+    ================================ -->
+    <record id="view_ops_manufacturing_setting_form" model="ir.ui.view">
+        <field name="name">ops.manufacturing.setting.form</field>
+        <field name="model">ops.manufacturing.setting</field>
+        <field name="arch" type="xml">
+            <form string="إعداد مدة التصنيع">
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="product_category_id"
+                                   placeholder="اختر فئة المنتج"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="manufacturing_days"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </group>
+
+                    <div class="oe_grey mt16">
+                        <strong>ملاحظة:</strong>
+                        يتم استخدام هذه المدة في حساب تاريخ التوصيل المتوقع
+                        بناءً على فئات المنتجات داخل أمر البيع.
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ===============================
+         ACTION
+    ================================ -->
+    <record id="action_ops_manufacturing_setting" model="ir.actions.act_window">
+        <field name="name">إعدادات التصنيع</field>
+        <field name="res_model">ops.manufacturing.setting</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                قم بتحديد مدة التصنيع لكل فئة منتج
+            </p>
+            <p>
+                سيتم استخدام هذه القيم تلقائيًا في حساب
+                تاريخ التوصيل المتوقع في أوامر البيع.
+            </p>
+        </field>
+    </record>
+
+    <!-- ===============================
+         MENU
+    ================================ -->
+    <menuitem id="menu_sale_ops_manufacturing_settings"
+              name="إعدادات التصنيع"
+              parent="menu_sale_ops_config_root"
+              action="action_ops_manufacturing_setting"
+              sequence="20"/>
+
+</odoo>

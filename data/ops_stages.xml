@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Sales Operations Stages (Simple & Safe) -->
+
+    <record id="ops_stage_new" model="ops.stage">
+        <field name="name">New</field>
+        <field name="sequence">10</field>
+        <field name="ops_area">manufacturing</field>
+    </record>
+
+    <record id="ops_stage_manufacturing" model="ops.stage">
+        <field name="name">Manufacturing</field>
+        <field name="sequence">20</field>
+        <field name="ops_area">manufacturing</field>
+    </record>
+
+    <record id="ops_stage_ready_shipping" model="ops.stage">
+        <field name="name">Ready for Shipping</field>
+        <field name="sequence">30</field>
+        <field name="ops_area">shipping</field>
+    </record>
+
+    <record id="ops_stage_shipping" model="ops.stage">
+        <field name="name">Shipping</field>
+        <field name="sequence">40</field>
+        <field name="ops_area">shipping</field>
+    </record>
+
+    <record id="ops_stage_done" model="ops.stage">
+        <field name="name">Delivered</field>
+        <field name="sequence">50</field>
+        <field name="ops_area">done</field>
+        <field name="is_done">True</field>
+        <field name="fold">True</field>
+    </record>
+
+    <record id="ops_stage_on_hold" model="ops.stage">
+        <field name="name">On Hold</field>
+        <field name="sequence">60</field>
+        <field name="ops_area">other</field>
+        <field name="fold">True</field>
+    </record>
+
+</odoo>

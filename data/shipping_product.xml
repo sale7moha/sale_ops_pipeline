@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_ops_shipping_service_tmpl" model="product.template">
+        <field name="name">Shipping Service</field>
+        <field name="type">service</field>
+        <field name="sale_ok">False</field>
+        <field name="purchase_ok">True</field>
+        <field name="list_price">0.0</field>
+    </record>
+</odoo>

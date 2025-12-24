@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- =====================================================
+         OPS STAGE - LIST VIEW
+         (No inline edit → New opens FORM)
+    ====================================================== -->
+    <record id="ops_stage_list" model="ir.ui.view">
+        <field name="name">ops.stage.list</field>
+        <field name="model">ops.stage</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name" string="اسم المرحلة"/>
+                <field name="ops_area" string="المنطقة التشغيلية"/>
+                <field name="is_done" string="منتهية؟"/>
+                <field name="fold" string="مطوية؟"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- =====================================================
+         OPS STAGE - FORM VIEW
+    ====================================================== -->
+    <record id="ops_stage_form" model="ir.ui.view">
+        <field name="name">ops.stage.form</field>
+        <field name="model">ops.stage</field>
+        <field name="arch" type="xml">
+            <form string="مرحلة العمليات">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="مثال: جديد، قيد التصنيع، جاهز للشحن..."/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="ops_area"/>
+                        </group>
+                        <group>
+                            <field name="is_done"/>
+                            <field name="fold"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- =====================================================
+         OPS STAGE - ACTION
+    ====================================================== -->
+    <record id="ops_stage_action" model="ir.actions.act_window">
+        <field name="name">مراحل العمليات</field>
+        <field name="res_model">ops.stage</field>
+        <field name="view_mode">list,form</field>
+        <field name="views" eval="[(ref('ops_stage_list'), 'list'), (ref('ops_stage_form'), 'form')]"/>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

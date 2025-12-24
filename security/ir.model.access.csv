@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ops_stage,access.ops.stage,model_ops_stage,base.group_user,1,1,1,1
+access_ops_shipping_carrier,access.ops.shipping.carrier,model_ops_shipping_carrier,base.group_user,1,1,1,1
+access_ops_manufacturing_setting,access.ops.manufacturing.setting,model_ops_manufacturing_setting,base.group_user,1,1,1,1

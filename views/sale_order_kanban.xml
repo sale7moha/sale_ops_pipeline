@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_order_kanban_ops" model="ir.ui.view">
+        <field name="name">sale.order.kanban.ops</field>
+        <field name="model">sale.order</field>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="ops_stage_id" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="amount_total"/>
+                <field name="currency_id"/>
+                <field name="date_order"/>
+                <field name="kanban_delivery_date"/>
+                <field name="client_order_ref"/>
+                <field name="kanban_city"/>
+                <field name="kanban_products_summary"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_kanban_record p-2">
+                            
+                            <div class="o_kanban_record_top d-flex justify-content-between align-items-baseline mb-1">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="partner_id"/>
+                                    </strong>
+                                </div>
+                                <div class="text-nowrap fw-bold">
+                                    <field name="amount_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center text-muted mb-2" style="font-size:13px;">
+                                <div style="direction:ltr;">
+                                    <field name="kanban_delivery_date"/>
+                                    <i class="fa fa-truck ms-2" style="margin-left: 10px !important;"/>
+                                </div>
+                                <div class="text-end">
+                                    <t t-if="record.client_order_ref.raw_value">
+                                        <field name="client_order_ref"/>
+                                        <span class="mx-1"></span> 
+                                    </t>
+                                    <span class="fw-bold text-dark"><field name="name"/></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 text-muted">
+                                <field name="kanban_products_summary"/>
+                            </div>
+
+                            <div class="o_kanban_record_bottom mt-2">
+                                <div class="oe_kanban_bottom_left d-flex align-items-center">
+                                    <span class="text-muted" style="font-size: 12px;">
+                                        <field name="date_order" widget="date"/>
+                                    </span>
+                                    <div class="ms-2" style="font-size: 0.8rem; opacity: 0.7;">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <span class="badge text-bg-success" style="background-color:#28a745; color:white; padding:5px 10px; border-radius:3px; font-weight: 500;">
+                                        <field name="kanban_city"/>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

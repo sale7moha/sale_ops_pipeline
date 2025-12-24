@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem id="menu_sale_ops_root"
+              name="Sales Operations"
+              sequence="10"/>
+
+    <!-- Sales Orders -->
+    <menuitem id="menu_sale_ops_orders"
+              name="Sales Orders"
+              parent="menu_sale_ops_root"
+              action="action_sale_orders_ops"
+              sequence="10"/>
+
+    <!-- Operations Configuration (THIS WAS MISSING) -->
+    <menuitem id="menu_sale_ops_config_root"
+              name="Operations Configuration"
+              parent="menu_sale_ops_root"
+              sequence="50"/>
+
+</odoo>

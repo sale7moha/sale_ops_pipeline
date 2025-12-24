@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_sale_orders_ops" model="ir.actions.act_window">
+        <field name="name">Operations Pipeline</field>
+        <field name="res_model">sale.order</field>
+
+        <!-- Order of views -->
+        <field name="view_mode">kanban,list,form</field>
+
+        <!-- Explicit views (important for custom kanban) -->
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {
+                'view_mode': 'kanban',
+                'view_id': ref('sale_ops_pipeline.sale_order_kanban_ops')
+            }),
+            (0, 0, {
+                'view_mode': 'list',
+                'view_id': ref('sale_ops_pipeline.sale_order_list_ops')
+            }),
+            (0, 0, {
+                'view_mode': 'form',
+                'view_id': ref('sale.view_order_form')
+            })
+        ]"/>
+
+        <!-- Default context -->
+        <field name="context">
+            {
+                'default_group_by': 'ops_stage_id',
+                'search_default_sales': 1
+            }
+        </field>
+
+        <!-- Empty view helper -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create or manage your Sales Operations!
+            </p>
+            <p>
+                Track your sales orders through different operational stages
+                and manage manufacturing and shipping commitments.
+            </p>
+        </field>
+    </record>
+
+</odoo>
